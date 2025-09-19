@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="page-header min-vh-100" style="background-image: url('https://images.unsplash.com/photo-1497294815431-9365093b7331?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80');">
+  <span class="mask bg-gradient-dark opacity-6"></span>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center mx-auto my-auto">
+        <h1 class="text-white">Soft UI Dashboard</h1>
+        <p class="lead mb-4 text-white opacity-8">
+          A beautiful dashboard built with Django and Soft UI Design System. Create your web project in no time using our Django dashboard.
+        </p>
+        <div class="d-flex justify-content-center gap-3">
+          <a href="{% url 'account_login' %}" class="btn bg-white text-dark">
+            <i class="fas fa-sign-in-alt me-2"></i> Sign In
+          </a>
+          <a href="{% url 'account_signup' %}" class="btn btn-outline-white">
+            <i class="fas fa-user-plus me-2"></i> Sign Up
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="position-fixed bottom-1 start-1 z-index-2">
+      <div class="toast fade show p-2 bg-white" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header border-0">
+          <i class="fas fa-info-circle text-primary me-2"></i>
+          <span class="me-auto text-dark font-weight-bold">Info</span>
+          <small>Just now</small>
+          <i class="fas fa-times text-md ms-3 cursor-pointer" data-bs-dismiss="toast" aria-label="Close"></i>
+        </div>
+        <div class="toast-body">
+          This is a free dashboard template with authentication pages.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  // Hide sidebar and navbar on the home page
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('.sidenav').style.display = 'none';
+    document.querySelector('.navbar').style.display = 'none';
+    
+    // Initialize tooltips
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+  });
+</script>
+{% endblock %}
